@@ -1,0 +1,7 @@
+#frontend ignores
+./frontend/leger/node_modules
+./frontend/leger/public
+./frontend/leger/env
+
+#backend ignores
+./backend/node_modules
