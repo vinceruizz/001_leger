@@ -13,16 +13,17 @@ function TopNav() {
     }
   };
 
+
   return (
-    <div>
-      <nav>
-        <ul>
-          <li><a onClick={() => handleNavigate('home')}>Home</a></li>
-          <li><a onClick={() => handleNavigate('my-work')}>My Work</a></li>
-          <li><a onClick={() => handleNavigate('about')}>About</a></li>
+    <header className="flex justify-center pt-6">
+      <nav className="bg-white shadow-lg rounded-full">
+        <ul className="flex gap-6 px-6 py-4">
+          <li><a onClick={() => handleNavigate('home')} className="hover:text-blue-500 cursor-pointer">Home</a></li>
+          <li><a onClick={() => handleNavigate('my-work')} className="hover:text-blue-500 cursor-pointer">My Work</a></li>
+          <li><a onClick={() => handleNavigate('about')} className="hover:text-blue-500 cursor-pointer">About</a></li>
         </ul>
       </nav>
-    </div>
+    </header>
   );
 };
 
