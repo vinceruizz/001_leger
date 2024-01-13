@@ -1,8 +1,9 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function TopNav() {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleNavigate = (dest) => {
     switch (dest) {
@@ -13,18 +14,21 @@ function TopNav() {
     }
   };
 
+  const isActive = (path) => {
+    return location.pathname === path;
+  }
 
   return (
     <header className="flex justify-center pt-6">
       <nav className="bg-white shadow-lg rounded-full">
         <ul className="flex gap-6 px-6 py-4">
-          <li><a onClick={() => handleNavigate('home')} className="hover:text-blue-500 cursor-pointer">Home</a></li>
-          <li><a onClick={() => handleNavigate('my-work')} className="hover:text-blue-500 cursor-pointer">My Work</a></li>
-          <li><a onClick={() => handleNavigate('about')} className="hover:text-blue-500 cursor-pointer">About</a></li>
+          <li><a onClick={() => handleNavigate('home')} className={`cursor-pointer ${isActive('/home') ? 'bg-blue-500 text-white rounded-full px-3 py-1' : 'hover:text-blue-500'}`}>Home</a></li>
+          <li><a onClick={() => handleNavigate('my-work')} className={`cursor-pointer ${isActive('/my-work') ? 'bg-blue-500 text-white rounded-full px-3 py-1' : 'hover:text-blue-500'}`}>My Work</a></li>
+          <li><a onClick={() => handleNavigate('about')} className={`cursor-pointer ${isActive('/about') ? 'bg-blue-500 text-white rounded-full px-3 py-1' : 'hover:text-blue-500'}`}>About</a></li>
         </ul>
       </nav>
     </header>
   );
 };
 
-export default TopNav
+export default TopNav;
