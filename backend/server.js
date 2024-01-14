@@ -14,11 +14,12 @@ app.use(bodyParser.json());
 const PORT = 8080;
 const HOST = "0.0.0.0";
 
-const db_config = {
-    host: 'db',
-    user: 'root',
-    password: 'admin',
-    multipleStatements: true
-};
+function apiKeyMiddleware(req, res, next) {
+    const apiKey = req.header('X-API-KEY');
+    if (!apiKey || apiKey !== process.env.MY_API_KEY) {
+        return res.status(401).send('Unauthorized');
+    }
+    next();
+}
 
 let connection;

@@ -5,13 +5,19 @@ services:
     build: .
     networks:
       - legerNW
-    
+    depends_on:
+      - db
 
   db:
     image: 'mysql'
     environment:
-      - name=value
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=v${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     networks:
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
       - legerNW
 
 networks:
