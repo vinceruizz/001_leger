@@ -48,8 +48,15 @@ app.route('/project')
         })
     })
     .post(apiKeyMiddleware, (req,res) => { // create new project
+        const title = req.body.title;
+        const working_name = req.body.working_name;
+        const preview_description = req.body.preview_description;
+        const full_description = req.body.full_description;
+        const img_url = req.body.img_url;
+        const github = req.body.github;
+
         const query = `INSERT INTO projects (title, working_name, preview_description, full_description, img_url, github) VALUES (?, ?, ?, ?, ?, ?)`;
-        pool.query(query, (err, result) => {
+        pool.query(query, [title, working_name, preview_description, full_description, img_url, github], (err, result) => {
             if (err) throw err;
             res.status(200).send({ message: 'Project added successfully' });
         })      
