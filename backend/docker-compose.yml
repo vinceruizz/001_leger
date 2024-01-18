@@ -16,9 +16,9 @@ services:
       - MYSQL_USER=v${MYSQL_USER}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     networks:
+      - legerNW
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-      - legerNW
 
 networks:
   legerNW:

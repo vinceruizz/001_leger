@@ -9,4 +9,4 @@ COPY package*.json ./
 RUN npm install
 COPY . .
 EXPOSE 8080
-CMD ["./wait-for-it.sh", "db:3306", "--", "npm", "start"]
+CMD ["bash", "./wait-for-it.sh", "db:3306", "--", "npm", "start"]
