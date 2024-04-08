@@ -21,7 +21,7 @@ function MyWork() {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'X-API-KEY': 'zF*TGl3PABrcKYr9'
+          'X-API-KEY': '+A7V2!CX*jT?^]n'
         }
       });
       if (!response.ok) {

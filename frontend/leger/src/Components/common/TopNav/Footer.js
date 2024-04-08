@@ -13,7 +13,7 @@ function Footer() {
             <a href='https://github.com/vinceruizz' className="hover:text-blue-400 cursor-pointer">Github</a>
           </li>
           <li className="mx-3">
-            <a href='https://www.linkedin.com/in/vince-ruiz-ba2a331a1' className="hover:text-blue-400 cursor-pointer">LinkedIn</a>
+            <a href='https://www.linkedin.com/in/vince-ruiz' className="hover:text-blue-400 cursor-pointer">LinkedIn</a>
           </li>
           <li className="mx-3">
             <a onClick={() => handleNavigate('about')} className="hover:text-blue-400 cursor-pointer">CV</a>

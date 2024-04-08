@@ -5,3 +5,8 @@
 # Backend ignores
 /backend/node_modules/
 /backend/.env
+
+#Firebase ignores
+/frontend/.firebase/
+/frontend/.firebaserc
+/frontend/.firebase.json
