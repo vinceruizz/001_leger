@@ -14,8 +14,9 @@ function Project({ project, onClose }) {
         className="fixed inset-0 bg-black bg-opacity-50 backdrop-filter backdrop-blur-sm flex justify-center items-center"
         onClick={handleOverlayClick} // Add click listener here
       >
-        <div className="bg-white p-4 rounded">
+        <div className="bg-white p-4 rounded items-center">
           <h2>{project.title}</h2>
+          <img src={project.img_url} className="w-48 h-32"></img>
           <p>{project.full_description}</p>
           <button onClick={onClose}>Close</button>
         </div>
