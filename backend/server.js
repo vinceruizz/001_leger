@@ -3,14 +3,13 @@
 const express = require('express');
 const cors = require('cors');
 const mysql = require('mysql2');
-const bodyParser= require('body-parser');
+const bodyParser = require('body-parser');
 const { query } = require('express');
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
 
 const PORT = 8080;
 const HOST = "0.0.0.0";
@@ -39,35 +38,73 @@ app.route('/project')
         pool.query(query, (err, result) => {
             if (err) {
                 console.log(err);
-                return res.status(500).send({message: "server error"});
+                return res.status(500).send({ message: "server error" });
             }
             if (result.length < 1) {
                 return res.status(204).send({ message: 'No posts to display' });
             }
             res.status(200).json(result);
-        })
+        });
     })
-    .post(apiKeyMiddleware, (req,res) => { // create new project
-        const title = req.body.title;
-        const working_name = req.body.working_name;
-        const preview_description = req.body.preview_description;
-        const full_description = req.body.full_description;
-        const img_url = req.body.img_url;
-        const github = req.body.github;
+    .post(apiKeyMiddleware, (req, res) => { // create new project
+        const { title, working_name, preview_description, full_description, img_url, github } = req.body;
 
         const query = `INSERT INTO projects (title, working_name, preview_description, full_description, img_url, github) VALUES (?, ?, ?, ?, ?, ?)`;
         pool.query(query, [title, working_name, preview_description, full_description, img_url, github], (err, result) => {
-            if (err) throw err;
+            if (err) {
+                console.log(err);
+                return res.status(500).send({ message: "server error" });
+            }
             res.status(200).send({ message: 'Project added successfully' });
-        })      
-    })
-    .put(apiKeyMiddleware, (req,res) => { // update project
+        });
+    });
 
+app.route('/project/:id')
+    .get(apiKeyMiddleware, (req, res) => { // get project by id
+        const id = req.params.id;
+        const query = `SELECT * FROM projects WHERE id = ?`;
+        pool.query(query, [id], (err, result) => {
+            if (err) {
+                console.log(err);
+                return res.status(500).send({ message: "server error" });
+            }
+            if (result.length < 1) {
+                return res.status(404).send({ message: 'Project not found' });
+            }
+            res.status(200).json(result[0]);
+        });
     })
-    .delete(apiKeyMiddleware, (req,res) => { // delete project
+    .put(apiKeyMiddleware, (req, res) => { // update project
+        const id = req.params.id;
+        const { title, working_name, preview_description, full_description, img_url, github } = req.body;
 
+        const query = `UPDATE projects SET title = ?, working_name = ?, preview_description = ?, full_description = ?, img_url = ?, github = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?`;
+        pool.query(query, [title, working_name, preview_description, full_description, img_url, github, id], (err, result) => {
+            if (err) {
+                console.log(err);
+                return res.status(500).send({ message: "server error" });
+            }
+            if (result.affectedRows === 0) {
+                return res.status(404).send({ message: 'Project not found' });
+            }
+            res.status(200).send({ message: 'Project updated successfully' });
+        });
     })
+    .delete(apiKeyMiddleware, (req, res) => { // delete project
+        const id = req.params.id;
 
+        const query = `DELETE FROM projects WHERE id = ?`;
+        pool.query(query, [id], (err, result) => {
+            if (err) {
+                console.log(err);
+                return res.status(500).send({ message: "server error" });
+            }
+            if (result.affectedRows === 0) {
+                return res.status(404).send({ message: 'Project not found' });
+            }
+            res.status(200).send({ message: 'Project deleted successfully' });
+        });
+    });
 
 app.listen(PORT, HOST);
 console.log('Server is up and running...');

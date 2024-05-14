@@ -17,7 +17,7 @@ function MyWork() {
 
   const fetchProjects = async () => {
     try {
-      const response = await fetch('http://localhost:8080/project', {
+      const response = await fetch('http://3.15.2.128:8080/project', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -50,7 +50,11 @@ function MyWork() {
       <div className='flex-grow container mx-auto p-4 text-white'>
         <div className='flex flex-row flex-wrap justify-center gap-4'>
           {projects.map(project => (
-            <a key={project.id} onClick={() => handleProjectClick(project)} className="cursor-pointer flex flex-col block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
+            <a 
+              key={project.id} 
+              onClick={() => handleProjectClick(project)} 
+              className="cursor-pointer flex flex-col block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100"
+            >
               <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">{project.title}</h5>
               <p className="font-normal text-gray-700 flex-grow">{project.preview_description}</p>
             </a>
@@ -61,8 +65,6 @@ function MyWork() {
       <Footer />
     </div>
   );
-  
 }
 
 export default MyWork;
-

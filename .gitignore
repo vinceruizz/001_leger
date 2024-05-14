@@ -5,6 +5,7 @@
 # Backend ignores
 /backend/node_modules/
 /backend/.env
+/backend/portfolio-kp-1.pem
 
 #Firebase ignores
 /frontend/.firebase/
