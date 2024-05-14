@@ -27,7 +27,7 @@ function About() {
                     message="Welcome to my portfolio website! I'm Vince Ruiz, a passionate computer engineer
                             with a deep love for embedded systems and software development. With my bachelor's degree in Computer Engineering (Digital Systems & software
                             concentrations), I hope to further my knowledge in computer architecture, embedded systems design, and software development practices."
-                    imageUrl="https://res.cloudinary.com/dbhn8kvoh/image/upload/v1715659004/About-Hi_Im_Vince_mkobmc.webp"
+                    imageUrl="https://res.cloudinary.com/dbhn8kvoh/image/upload/v1715729468/Snapchat-1030394388_ixr4n3.jpg"
                     imageAlt="Vince Ruiz"
                 />
                 <AboutCard
@@ -42,7 +42,7 @@ function About() {
                 <AboutCard
                     title="My Mission"
                     message="As a graduate of the University of Saskatchewan's College of Engineering, my mission is to leverage my expertise in computer engineering
-                            to create innovative and reliable solutions that enhance everyday life. I aim to continuously grow and adapt in the ever-evolving field of technology,
+                            to create innovative and reliable solutions that wll grant my clients with 100% satisfaction. I aim to continuously grow and adapt in the ever-evolving field of technology,
                             ensuring that each project is delivered with precision and creativity."
                     imageUrl="https://res.cloudinary.com/dbhn8kvoh/image/upload/v1715659972/About_-_Engineering_fxafob.jpg"
                     imageAlt="Mission"
@@ -50,7 +50,7 @@ function About() {
                 <AboutCard
                     title="Beyond Engineering"
                     message="When I'm not in the office, you can find me learning new technologies and programming practices, playing the latest trending video games, writing music with my band Palace 
-                            in the Sky, at the gym, or spending time with my family.
+                            in the Sky, at the gym, or spending time with my family and friends.
                             Thank you for visiting, and I look forward to connecting with you!"
                     imageUrl="https://res.cloudinary.com/dbhn8kvoh/image/upload/v1715660311/20240513_221735_jn0lig.jpg"
                     imageAlt="Hobbies"

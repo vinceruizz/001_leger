@@ -1,14 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import TopNav from '../common/TopNav/TopNav';
 import Footer from '../common/TopNav/Footer';
 
 function Home() {
+
+  const vinceSummaryRef = useRef(null);
+  const workSummaryRef = useRef(null);
+  const aboutSummaryRef = useRef(null);
+
   const [visibleSection, setVisibleSection] = useState('vinceSummary');
 
   const sectionRefs = {
-    vinceSummary: React.createRef(),
-    workSummary: React.createRef(),
-    aboutSummary: React.createRef(),
+    vinceSummary: vinceSummaryRef,
+    workSummary: workSummaryRef,
+    aboutSummary: aboutSummaryRef,
   };
 
   useEffect(() => {
@@ -17,15 +22,21 @@ function Home() {
       const scrollPosition = window.scrollY + window.innerHeight / 2;
       sections.forEach((section) => {
         const ref = sectionRefs[section].current;
-        if (ref.offsetTop <= scrollPosition && ref.offsetTop + ref.offsetHeight > scrollPosition) {
+        if (ref && ref.offsetTop <= scrollPosition && ref.offsetTop + ref.offsetHeight > scrollPosition) {
           setVisibleSection(section);
         }
       });
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, [sectionRefs]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className='flex flex-col min-h-screen bg-gradient-to-r from-sky-500 to-indigo-500'>
@@ -33,7 +44,7 @@ function Home() {
         <TopNav />
       </div>
       <div className='flex-grow container mx-auto p-4 text-white pt-16 pb-16'>
-        {Object.keys(sectionRefs).map((sectionKey, index) => (
+        {Object.keys(sectionRefs).map((sectionKey) => (
           <div
             key={sectionKey}
             ref={sectionRefs[sectionKey]}

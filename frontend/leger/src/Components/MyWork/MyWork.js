@@ -17,7 +17,7 @@ function MyWork() {
 
   const fetchProjects = async () => {
     try {
-      const response = await fetch('http://3.15.2.128:8080/project', {
+      const response = await fetch('http://18.117.146.200:8080/project', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -53,10 +53,22 @@ function MyWork() {
             <a 
               key={project.id} 
               onClick={() => handleProjectClick(project)} 
-              className="cursor-pointer flex flex-col block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100"
+              className="cursor-pointer flex max-w-lg p-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100"
             >
-              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">{project.title}</h5>
-              <p className="font-normal text-gray-700 flex-grow">{project.preview_description}</p>
+              <div className="flex-none w-1/3 p-2 border-r border-gray-200">
+                <h5 className="mb-2 text-lg font-bold text-gray-900">Tech Stack</h5>
+                <ul className="list-disc list-inside text-gray-700">
+                  {project.preview_description.split(',').map((tech, index) => ( //Lazy way of displaying tech stack
+                    <li key={index}>{tech.trim()}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="flex-grow p-2">
+                <h5 className="mb-2 text-2xl font-bold text-gray-900">{project.title}</h5>
+                {project.img_url && (
+                  <img src={project.img_url} alt={project.title} className="rounded-lg shadow-md" />
+                )}
+              </div>
             </a>
           ))}
         </div>
