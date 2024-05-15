@@ -17,7 +17,7 @@ function MyWork() {
 
   const fetchProjects = async () => {
     try {
-      const response = await fetch('http://18.117.146.200:8080/project', {
+      const response = await fetch('https://api.vinceruiz.com:8080/project', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

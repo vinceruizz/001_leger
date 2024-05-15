@@ -4,10 +4,16 @@ const express = require('express');
 const cors = require('cors');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
-const { query } = require('express');
+require('dotenv').config(); 
 
 const app = express();
-app.use(cors());
+
+// Configure CORS
+const corsOptions = {
+    origin: ['https://vinceruiz.com', 'https://www.vinceruiz.com', 'http://localhost:3000', 'http://localhost'],
+    optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -32,6 +38,12 @@ function apiKeyMiddleware(req, res, next) {
 const pool = mysql.createPool(db_config);
 
 // ============= ENDPOINTS =============
+
+// Root URL handler
+app.get('/', (req, res) => {
+    res.send('Welcome to the API!');
+});
+
 app.route('/project')
     .get(apiKeyMiddleware, (req, res) => { // get all projects
         const query = `SELECT * FROM projects`;
@@ -106,5 +118,6 @@ app.route('/project/:id')
         });
     });
 
-app.listen(PORT, HOST);
-console.log('Server is up and running...');
+app.listen(PORT, HOST, () => {
+    console.log(`Server running on http://${HOST}:${PORT}`);
+});
