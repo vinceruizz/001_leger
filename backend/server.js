@@ -8,12 +8,7 @@ require('dotenv').config();
 
 const app = express();
 
-// Configure CORS
-const corsOptions = {
-    origin: ['https://vinceruiz.com', 'https://www.vinceruiz.com', 'http://localhost:3000', 'http://localhost'],
-    optionsSuccessStatus: 200
-};
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 

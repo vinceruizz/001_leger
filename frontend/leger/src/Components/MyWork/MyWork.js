@@ -17,11 +17,11 @@ function MyWork() {
 
   const fetchProjects = async () => {
     try {
-      const response = await fetch('https://api.vinceruiz.com:8080/project', {
+      const response = await fetch('https://api.vinceruiz.com/project', {
         method: 'GET',
         headers: {
-          'Content-Type': 'application/json',
-          'X-API-KEY': '+A7V2!CX*jT?^]n'
+          'X-API-KEY': '+A7V2!CX*jT?^]n',
+          'Content-Type': 'application/json'
         }
       });
       if (!response.ok) {
