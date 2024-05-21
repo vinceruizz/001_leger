@@ -22,7 +22,8 @@ function Project({ project, onClose }) {
             aria-modal="true"
         >
             <div className="bg-white p-8 rounded-lg shadow-lg max-w-md mx-4">
-                <h2 className="text-2xl font-bold mb-4">{project.title}</h2>
+                <h2 className="text-2xl font-bold mb-2">{project.title}</h2>
+                <p className="text-base mb-4">Working name: {project.working_name}</p>
                 <img src={project.img_url} alt={`${project.title} image`} className="w-full h-auto mb-4 rounded" />
                 <div className="flex justify-center mb-4">
                     {githubLink && (
