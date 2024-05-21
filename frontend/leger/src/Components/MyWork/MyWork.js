@@ -10,7 +10,15 @@ function MyWork() {
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchProjects();
-      setProjects(data);
+      setProjects(data.sort((a,b) => {
+        if (a.working_name < b.working_name) {
+          return -1;
+        }
+        if (a.working_name > b.working_name) {
+          return 1;
+        }
+        return 0;
+      }));
     };
     fetchData();
   }, []);
@@ -46,7 +54,7 @@ function MyWork() {
       <div className='fixed top-0 left-0 right-0 z-50'>
         <TopNav />
       </div>
-      <div className='flex justify-center m-4 mt-8'>
+      <div className='flex justify-center m-4 mt-8 pt-16 pb-2'>
         <h1 className='text-2xl font-semibold text-white items-center'>My Work</h1>
       </div>
       <div className='flex-grow container mx-auto p-4 text-white'>
