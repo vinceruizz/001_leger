@@ -32,7 +32,7 @@ function Project({ project, onClose }) {
                     )}
                     {siteLink && (
                         <a href={siteLink} target="_blank" rel="noopener noreferrer">
-                            <img src="/github-142-svgrepo-com.svg" alt="Site" className="w-6 h-6" />
+                            <img src="/link-svgrepo-com.svg" alt="Site" className="w-6 h-6" />
                         </a>
                     )}
                 </div>

@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import TopNav from '../common/TopNav/TopNav';
 import Footer from '../common/TopNav/Footer';
 import TechStack from './TechStack';
 import AboutCard from './AboutCard';
 
 function About() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
     return (
         <div className='flex flex-col min-h-screen bg-gradient-to-r from-sky-600 to-indigo-600'>
           <div className='fixed top-0 left-0 right-0 z-50'>

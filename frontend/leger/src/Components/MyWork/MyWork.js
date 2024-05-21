@@ -43,7 +43,9 @@ function MyWork() {
 
   return (
     <div className={`flex flex-col min-h-screen bg-gradient-to-r from-sky-500 to-indigo-500 ${selectedProject ? 'backdrop-filter backdrop-blur-sm' : ''}`}>
-      <TopNav />
+      <div className='fixed top-0 left-0 right-0 z-50'>
+        <TopNav />
+      </div>
       <div className='flex justify-center m-4 mt-8'>
         <h1 className='text-2xl font-semibold text-white items-center'>My Work</h1>
       </div>
