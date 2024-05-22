@@ -13,6 +13,7 @@ function TechStack() {
                         <li className='mb-1'>C++</li>
                         <li className='mb-1'>Java</li>
                         <li className='mb-1'>SQL (MySQL and Oracle SQL)</li>
+                        <li className='mb-1'>NoSQL (MongoDB and CouchDB)</li>
                         <li className='mb-1'>JavaScript</li>
                         <li className='mb-1'>HTML/CSS</li>
                         <li className='mb-1'>SystemVerilog</li>
