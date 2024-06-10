@@ -64,17 +64,17 @@ function Home() {
             <img
               src={
                 sectionKey === 'vinceSummary'
-                  ? 'https://res.cloudinary.com/dbhn8kvoh/image/upload/v1715665587/1580711639446_bivck7.jpg'
+                  ? 'https://res.cloudinary.com/dbhn8kvoh/image/upload/v1717988953/IMG_20240609_201619_159_lzaumw_hf31rh.jpg'
                   : sectionKey === 'workSummary'
                   ? 'https://res.cloudinary.com/dbhn8kvoh/image/upload/v1715665373/439987002_1657442948415271_8315619213850901408_n_bqrjkk.jpg'
                   : 'https://res.cloudinary.com/dbhn8kvoh/image/upload/v1712555490/pits_prom2_qshcsn.jpg'
               }
               alt={
                 sectionKey === 'vinceSummary'
-                  ? 'Description of Image 1'
+                  ? 'Graduation 2024'
                   : sectionKey === 'workSummary'
-                  ? 'Description of Image 2'
-                  : 'Description of Image 3'
+                  ? 'Photo taken at the end of last final'
+                  : 'PitS at Prom'
               }
               className="w-1/3 mb-6 rounded-lg shadow-lg"
             />
