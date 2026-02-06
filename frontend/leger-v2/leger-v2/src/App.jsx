@@ -14,6 +14,14 @@ function App() {
     setScreen('desktop');
   }, []);
 
+  const handleLogout = useCallback(() => {
+    setScreen('login');
+  }, []);
+
+  const handleRestart = useCallback(() => {
+    setScreen('boot');
+  }, []);
+
   if (screen === 'boot') {
     return <Boot onComplete={handleBootComplete} />;
   }
@@ -22,7 +30,7 @@ function App() {
     return <Login onLogin={handleLogin} />;
   }
 
-  return <Desktop />;
+  return <Desktop onLogout={handleLogout} onRestart={handleRestart} />;
 }
 
 export default App

@@ -1,46 +1,31 @@
 import { useEffect, useState } from "react";
 
-const VIKING_HELMET = String.raw`
-                  /¯¯\
-                  \__/
-                   ||
-                   ||
-                  |  |
-                  |  |
-                  |  |
-                  |  |
-                  |  |
-                  |  |
-              .--.----.--.
-            .-----\__/-----.
-    ___---¯¯////¯¯|\/|¯¯\\\\¯¯---___
- /¯¯ __O_--////   |  |   \\\\--_O__ ¯¯\
-| O?¯      ¯¯¯    |  |    ¯¯¯      ¯?O |
-|  '    _.-.      |  |      .-._    '  |
-|O|    ?..?      ./  \.      ?..?    |O|
-| |     '?. .-.  | /\ |  .-. .?'     | |
-| ---__  ¯?__?  /|\¯¯/|\  ?__?¯  __--- |
-|O     \         ||\/ |         /     O|
-|       \  /¯?_  ||   |  _?¯\  /       |
-|       / /    - ||   | -    \ \       |
-|O   __/  | __   ||   |   __ |  \__   O|
-| ---     |/  -_/||   |\_-  \|     --- |
-|O|            \ ||   | /            |O|
-\ '              ||   |        ^~DLF ' /
- \O\    _-¯?.    ||   |    .?¯-_    /O/
-  \ \  /  /¯¯¯?  ||   |  ?¯¯¯\  \  / /
-   \O\/   |      ||   |      |   \/O/
-    \     |      ||   |      |     /
-     '.O  |_     ||   |     _|  O.'
-        '._O'.__/||   |\__.'O_.'
-           '._ O ||   | O _.'
-              '._||   |_.'
-                 ||   |
-                 ||   |
-                 | \/ |
-                 |  | |
-                  \ |/
-                   \/
+const SWORD_SHIELD = String.raw`
+              __
+             |  |
+             |  |
+             |  |
+          ___|  |___
+         [___\  /___]
+             |  |
+         .---'  '---.
+        /            \
+       /              \
+      |                |
+      |       /\       |
+      |      /  \      |
+      |     /    \     |
+      |    /      \    |
+      |   /        \   |
+      |  /          \  |
+       \/            \/
+        \            /
+         \          /
+          \        /
+           \      /
+            \    /
+             \  /
+              \/
 `;
 
 function Boot({ onComplete }) {
@@ -67,7 +52,7 @@ function Boot({ onComplete }) {
     <div className={`boot ${phase >= 4 ? "boot--fade-out" : ""}`}>
       <div className="boot__content">
         <pre className={`boot__helmet ${phase >= 1 ? "boot__helmet--visible" : ""}`}>
-          {VIKING_HELMET}
+          {SWORD_SHIELD}
         </pre>
         <h1 className={`boot__title ${phase >= 2 ? "boot__title--visible" : ""}`}>
           AlfreccOS

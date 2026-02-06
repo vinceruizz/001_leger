@@ -18,6 +18,39 @@
   overflow: hidden;
 }
 
+.desktop__watermark {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.06;
+  color: #fff;
+}
+
+.desktop__watermark-logo {
+  width: 180px;
+  height: 180px;
+  margin-bottom: 24px;
+}
+
+.desktop__watermark-text {
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: 12px;
+  text-transform: uppercase;
+}
+
+.desktop__watermark-subtitle {
+  font-size: 20px;
+  letter-spacing: 24px;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
 /* Top Panel - GNOME style */
 .top-panel {
   height: var(--panel-height);
@@ -49,6 +82,7 @@
 .top-panel__right {
   flex: 1;
   justify-content: flex-end;
+  position: relative;
 }
 
 .top-panel__button {
@@ -68,6 +102,57 @@
 
 .top-panel__clock {
   font-weight: 500;
+}
+
+.top-panel__button--active {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.top-panel__menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: #3d3d3d;
+  border-radius: 12px;
+  padding: 8px 0;
+  min-width: 200px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  z-index: 1001;
+  animation: menu-fade-in 0.15s ease-out;
+}
+
+@keyframes menu-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.top-panel__menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s;
+  text-align: left;
+}
+
+.top-panel__menu-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.top-panel__menu-item svg {
+  opacity: 0.7;
 }
 
 /* Taskbar / Dock - Left side */
@@ -243,74 +328,80 @@
 
 /* Application: About */
 .app-about {
-  padding: 32px;
-  text-align: center;
-}
-
-.app-about__header {
-  margin-bottom: 32px;
-}
-
-.app-about__avatar {
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28px;
-  font-weight: 600;
-  color: #fff;
-  margin: 0 auto 16px;
-}
-
-.app-about__header h1 {
-  font-size: 24px;
-  margin: 0 0 4px;
-}
-
-.app-about__header p {
-  opacity: 0.7;
-  margin: 0;
+  padding: 24px;
+  height: 100%;
+  overflow-y: auto;
 }
 
 .app-about__content {
-  text-align: left;
-  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 600px;
   margin: 0 auto;
 }
 
-.app-about__content section {
-  margin-bottom: 24px;
+.app-about__card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-.app-about__content h2 {
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  opacity: 0.5;
-  margin: 0 0 8px;
+.app-about__card-image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 16px;
+  border: 3px solid rgba(255, 255, 255, 0.2);
 }
 
-.app-about__content p {
+.app-about__card-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+
+.app-about__card-message {
   line-height: 1.6;
   margin: 0;
+  opacity: 0.85;
+  font-size: 14px;
+}
+
+.app-about__contact {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+}
+
+.app-about__contact h2 {
+  font-size: 18px;
+  margin: 0 0 16px;
 }
 
 .app-about__links {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
 }
 
 .app-about__links li {
-  margin-bottom: 8px;
+  margin: 0;
 }
 
 .app-about__links a {
   color: #6ea8fe;
   text-decoration: none;
+  font-size: 15px;
 }
 
 .app-about__links a:hover {
