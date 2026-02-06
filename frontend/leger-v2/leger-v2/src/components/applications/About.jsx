@@ -73,6 +73,11 @@ function About() {
                 LinkedIn
               </a>
             </li>
+            <li>
+              <a href="mailto:vincedanielruiz@outlook.com">
+                Email
+              </a>
+            </li>
           </ul>
         </div>
       </div>

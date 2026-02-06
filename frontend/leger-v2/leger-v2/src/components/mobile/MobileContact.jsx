@@ -20,7 +20,7 @@ function MobileContact() {
     },
     {
       label: "Email",
-      url: "mailto:vince@vinceruiz.com",
+      url: "mailto:vincedanielruiz@outlook.com",
       icon: (
         <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
           <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
