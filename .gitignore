@@ -11,3 +11,5 @@
 /frontend/.firebase/
 /frontend/.firebaserc
 /frontend/.firebase.json
+
+**/.firebase/
